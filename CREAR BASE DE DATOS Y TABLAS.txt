@@ -1,0 +1,56 @@
+
+/==============================================================/
+/* Database: BD_EMPRESAELECTRICA                                         */
+/==============================================================/
+Create database: BD_EMPRESAELECTRICA
+/==============================================================/
+/* Table: ADMINISTRADOR                                         */
+/==============================================================/
+create table ADMINISTRADOR (
+   ADMIN_ID             int                  not null,
+   ADMIN_NOMBRE         varchar(20)          null,
+   ADMIN_CEDULA         varchar(10)          null,
+   ADMIN_CORREO         varchar(50)          null,
+   ADMIN_TELEFONO       varchar(10)          null,
+   constraint PK_ADMINISTRADOR primary key (ADMIN_ID)
+)
+
+
+
+/==============================================================/
+/* Table: CLIENTE                                               */
+/==============================================================/
+create table CLIENTE (
+   CLIENTE_ID           int                  not null,
+   SECTOR_ID            int                  null,
+   CLIENTE_NOMBRE       varchar(20)          null,
+   CLIENTE_CEDULA       varchar(10)          null,
+   CLIENTE_CORREO       varchar(50)          null,
+   CLIENTE_TELEFONO     varchar(10)          null,
+   constraint PK_CLIENTE primary key (CLIENTE_ID)
+)
+
+
+
+/==============================================================/
+/* Table: INFORMACION_DE_VALORES                                */
+/==============================================================/
+create table INFORMACION_DE_VALORES (
+   CLIENTE_ID           int                  not null,
+   ADMIN_ID             int                  not null,
+   FECHA                date             null,
+   SALDO                numeric(5,2)         null,
+   constraint PK_INFORMACION_DE_VALORES primary key (ADMIN_ID, CLIENTE_ID)
+)
+
+
+
+
+/==============================================================/
+/* Table: SECTOR                                                */
+/==============================================================/
+create table SECTOR (
+   SECTOR_ID            int                  not null,
+   SECTOR_NOMBRE        varchar(20)          null,
+   constraint PK_SECTOR primary key (SECTOR_ID)
+)
